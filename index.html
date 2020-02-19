@@ -8,7 +8,6 @@
 	<script type="text/javascript" src="jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152050620-2"></script>
-
 </head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script>
@@ -18,11 +17,11 @@
 
 	gtag('config', 'UA-152050620-2');
 </script>
-
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.money').mask('000000000000000.00', {reverse: true});
 		$("#resultados").hide();
+		var log = "";
 
 		$("#calcula").click(function(){
 			if($("#vlaluguel").val()==""||$("#vlaluguel").val()==""||$("#vlaluguel").val()==0.00||$("#vlaluguel").val()==0.00){
@@ -30,9 +29,7 @@
 			}else{
 				var aluguel = parseFloat($("#vlaluguel").val());
 				var repasse = parseFloat($("#vlrepasse").val());
-				console.log(aluguel+" - "+repasse);
 				var vlcomissao = ((repasse*100)/aluguel).toFixed(3);
-				console.log("adasd"+vlcomissao, -1);
 				var vltaxaadm = (100-vlcomissao).toFixed(3);
 				var vlrepassereal = (aluguel-(aluguel*vltaxaadm/100)).toFixed(3);
 				var vladmimob = ((aluguel*vltaxaadm)/100).toFixed(3);
@@ -42,11 +39,9 @@
 				$("#vltaxaadm").text(vltaxaadm+" %");
 				$("#vlrepassereal").text("R$ "+vlrepassereal);
 				$("#vladmimob").text("R$ "+vladmimob);
-
-				console.log(
-					"Calculo Comissão:("+repasse+"*100)/"+aluguel+" = "+ vlcomissao);
-				console.log(
-					"Calculo % Taxa: 100-"+vlcomissao+"="+vltaxaadm);
+				log += "Calculo Comissão:("+repasse+"*100)/"+aluguel+" = "+ vlcomissao + " | ";
+				log += "Calculo % Taxa: 100-"+vlcomissao+" = "+vltaxaadm;
+				console.log(log);
 			}
 		});
 
@@ -58,7 +53,6 @@
 			$("#vlrepassereal").text("");
 			$("#vladmimob").text("");
 			$("#resultados").fadeOut("fast");
-			
 		});
 	});
 </script>
@@ -95,7 +89,7 @@
 				<p class="text-right">Valor de aluguel*</p>
 			</div>
 			<div class="col text-left">
-				<input type="text" class="money" name="vlaluguel" id="vlaluguel">
+				<input type="text" class="form money" name="vlaluguel" id="vlaluguel">
 			</div>
 		</div>
 		<div class="row">
@@ -114,8 +108,9 @@
 				<button class="btn btn-secondary btn-lm btn-block" id="limpar">Limpar</button>
 			</div>
 		</div>
-		<hr>
+		
 		<div class="container hide" id="resultados">
+			<hr>
 			<div class="row">
 				<div class="col">
 					<p class="font-weight-bold text-right">Comissão Aproximada</p>
