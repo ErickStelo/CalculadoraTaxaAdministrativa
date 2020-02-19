@@ -8,14 +8,24 @@
 	<script type="text/javascript" src="jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152050620-2"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-152050620-2');
+</script>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.money').mask('000000000000000.00', {reverse: true});
 		$("#resultados").hide();
 
 		$("#calcula").click(function(){
-			if($("#vlaluguel").val()==""||$("#vlaluguel").val()==""){
-				alert("Preencha os campos obrigatórios;");
+			if($("#vlaluguel").val()==""||$("#vlaluguel").val()==""||$("#vlaluguel").val()==0.00||$("#vlaluguel").val()==0.00){
+				alert("Campos obrigatórios vazios ou com valor incorreto, verifique e tente novamente;");
 			}else{
 				var aluguel = parseFloat($("#vlaluguel").val());
 				var repasse = parseFloat($("#vlrepasse").val());
