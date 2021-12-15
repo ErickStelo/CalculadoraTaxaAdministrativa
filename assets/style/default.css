@@ -71,7 +71,7 @@ label {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 770px) {
     #logo_imoalert_header {
         display: none;
     }
