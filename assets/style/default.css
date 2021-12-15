@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Catamaran&display=swap');
 
-body{
+body {
     background-color: #1A1A2E !important;
     margin: 20px 10px;
 }
 
-p{
+p {
     font-family: 'Catamaran', sans-serif;
     font-weight: normal;
 }
 
-label{
+label {
     font-family: 'Catamaran', sans-serif;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
@@ -25,38 +25,55 @@ label{
     background: white;
 }
 
-.required{
+.required {
     color: red;
     padding-right: 2pt;
 }
 
-.btn-active{
+.btn-active {
     background-color: #326390 !important;
 }
 
-.btn-primary{
+.btn-primary {
     background-color: #0F3460
 }
-.btn-secondary{
+
+.btn-secondary {
     background-color: #16213E;
 }
 
-.bg-rosa{
+.bg-rosa {
     background-color: #E94560;
     border-radius: 6px;
 }
-.bg-rosa > div > p{
+
+.bg-rosa>div>p {
     color: white;
     padding: 20px 0 0 20px;
     line-height: 0;
 }
-.bg-rosa > div > h4{
+
+.bg-rosa>div>h4 {
     color: white;
     padding: 0 0 5px 20px;
     font-weight: 800;
 }
 
-.lg-input{
+.lg-input {
     font-size: 16pt !important;
 }
 
+#logo_imoalert_footer{
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    #logo_imoalert_header {
+        display: none;
+    }
+    #logo_imoalert_footer{
+        display: inline;
+        width: 110px;
+    }
+}

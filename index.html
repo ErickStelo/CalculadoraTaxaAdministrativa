@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md-6 text-end" style="padding-bottom: 10px;">
 						<a href="https://imoalert.com.br" target="_blank" rel="noopener noreferrer">
-							<img src="https://imoalert.com.br/application/views/site/themes/default/app/assets/img/logo[blue].png" width="150px" class="img-fluid" alt="">
+							<img id='logo_imoalert_header' src="https://imoalert.com.br/application/views/site/themes/default/app/assets/img/logo[blue].png" width="150px" class="img-fluid" alt="">
 						</a>
                     </div>
 					<hr>
@@ -121,24 +121,24 @@
 
 				</div>
 				<div class="col-md-12">
-					<table class="table table-sm">
+					<table class="table table-sm table-responsive">
 						<thead>
-							<td>Vl. Aluguel</td>
-							<td>Vl. Taxa</td>
-							<td>Vl. Adm</td>
-							<td>Vl. Repasse (Prova real)</td>
-							<td>% taxa adm</td>
+							<td><small>Vl. Aluguel</small></td>
+							<!-- <td><small>Vl. Taxa</small></td> -->
+							<td><small>Vl. Adm</small></td>
+							<td><small>Vl. Repasse</small></td>
+							<td><small>% taxa adm</small></td>
 						</thead>
 						<tbody>
 							<tr v-if='historicoCalculos.length === 0'>
 								<td colspan="5" class="text-center"><p class="text-muted">Nenhum histórico encontrado</p></td>
 							</tr>
 							<tr v-for='item in historicoCalculos'>
-								<td><p>{{item.vl_aluguel}}</p></td>
-								<td><p>{{item.vl_taxa}}</p></td>
-								<td><p>{{item.vlf_admimob}}</p></td>
-								<td><p>{{item.vlf_repassereal}}</p></td>
-								<td><p>{{item.vlf_taxaadm}}</p></td>
+								<td><small>{{item.vl_aluguel}}</small></td>
+								<!-- <td><small>{{item.vl_taxa}}</small></td> -->
+								<td><small>{{item.vlf_admimob}}</small></td>
+								<td><small>{{item.vlf_repassereal}}</small></td>
+								<td><small>{{item.vlf_taxaadm}}</small></td>
 							</tr>
 						</tbody>
 					</table>
@@ -147,6 +147,10 @@
 			<div class="col-md-12" style="margin-top: 60px;">
 				<hr>
 				<small class='text-muted'>Encontrou alguma divergência? <a href="mailto:suporte@metasig.com.br">Entre em contato conosco.</a> </small>
+			</div>
+			<div class="col-md-12 text-center">
+				<hr>
+				<img id='logo_imoalert_footer' src="https://imoalert.com.br/application/views/site/themes/default/app/assets/img/logo[blue].png" class="img-fluid" alt="">
 			</div>
         </div>
 
