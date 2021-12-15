@@ -53,19 +53,19 @@
                             <div class='col-md-12'>
                                 <div class="form-group">
                                     <label for="vl_aluguel"><span class='required'>*</span>Valor de aluguel</label>
-                                    <input type="text" class="form-control ip_address" v-money="money" v-model='valores.vl_aluguel' name="vl_aluguel" id="vl_aluguel">
+                                    <input type="text" class="form-control lg-input" v-money="money" v-model='valores.vl_aluguel' name="vl_aluguel" id="vl_aluguel">
                                 </div>
                             </div>
-                            <div class='col-md-12 pt-2' v-if='opcaoCalculo === 1'>
+                            <div class='col-md-12 pt-3' v-if='opcaoCalculo === 1'>
                                 <div class="form-group">
                                     <label for="vl_repasse"><span class='required'>*</span>Valor de repasse</label>
-                                    <input type="text" class="form-control" v-money="money" v-model='valores.vl_repasse' name="vl_repasse" id="vl_repasse">
+                                    <input type="text" class="form-control lg-input" v-money="money" v-model='valores.vl_repasse' name="vl_repasse" id="vl_repasse">
                                 </div>
                             </div>
-                            <div class='col-md-12 pt-2' v-if='opcaoCalculo === 2'>
+                            <div class='col-md-12 pt-3' v-if='opcaoCalculo === 2'>
                                 <div class="form-group">
                                     <label for="vl_taxa"><span class='required'>*</span>Valor de taxa</label>
-                                    <input type="text" class="form-control" v-money="percent" v-model='valores.vl_taxa' name="vl_taxa" id="vl_taxa">
+                                    <input type="text" class="form-control lg-input" v-money="percent" v-model='valores.vl_taxa' name="vl_taxa" id="vl_taxa">
                                 </div>
                             </div>
                         </div>

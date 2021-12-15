@@ -15,7 +15,6 @@ label{
     font-family: 'Catamaran', sans-serif;
 }
 
-
 .hide{
     display: none;
 }
@@ -56,3 +55,8 @@ label{
     padding: 0 0 5px 20px;
     font-weight: 800;
 }
+
+.lg-input{
+    font-size: 22px !important;
+}
+
