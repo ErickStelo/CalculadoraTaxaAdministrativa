@@ -4,22 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculo de Porcentagem de Adm</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Cache-Control" content="no-cache">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="assets/scripts/jQuery-Mask-Plugin-master/dist/jquery.mask.js"></script>
-    <script type="text/javascript" src="assets/scripts/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>	
+    <script type="text/javascript" src="assets/scripts/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
     <script type="text/javascript" src="https://rawgit.com/vuejs-tips/v-money/master/dist/v-money.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152050620-2"></script>
     <link rel="icon" type="image/png" href="https://imoalert.com.br/application/views/site/themes/default/app/assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
-	<link rel="stylesheet" href="assets/style/default.css">
-	
+    <link rel="stylesheet" href="assets/style/default.css?fixcache=1">
+
 </head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script>
@@ -37,13 +37,17 @@
     <div id='app'>
         <div class="container box">
             <div class="col-md-12">
-                <div class="row" >
-                    <div class="col-md-12" style="padding-top: 20px;">
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 20px;">
                         <h4 style="line-height: 0;">Calculadora de taxa administrativa</h4>
-						<small class='text-muted'>v2.0.0</small>
+                        <small class='text-muted'>v2.0.0</small>
                     </div>
-                    
-					<hr>
+                    <div class="col-md-6 text-end" style="padding-right: 20px;">
+                        <a href="https://imoalert.com.br" target="_blank" rel="noopener noreferrer">
+                            <img id='logo_imoalert_header' src="https://imoalert.com.br/application/views/site/themes/default/app/assets/img/logo[blue].png" alt="">
+                        </a>
+                    </div>
+                    <hr>
                 </div>
                 <div class="row">
                     <div class="col-md-6" style="padding: 20px;">
@@ -105,51 +109,53 @@
                     </div>
                 </div>
             </div>
-			<div class="col-md-12">
-				<hr>
-				<div class="row">
-					<div class="col-sm-6">
-						<h4>Histórico de cálculos</h4>
-						
-					</div>
-					<div class="col-sm-6 text-end">
-						<button type="button" class="btn btn-link" v-on:click='clearHistorico()'>Limpar histórico</button>				
-					</div>
+            <div class="col-md-12">
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>Histórico de cálculos</h4>
 
-				</div>
-				<div class="col-md-12">
-					<table class="table table-sm table-responsive">
-						<thead>
-							<td><small>Vl. Aluguel</small></td>
-							<!-- <td><small>Vl. Taxa</small></td> -->
-							<td><small>Vl. Adm</small></td>
-							<td><small>Vl. Repasse</small></td>
-							<td><small>% taxa adm</small></td>
-						</thead>
-						<tbody>
-							<tr v-if='historicoCalculos.length === 0'>
-								<td colspan="5" class="text-center"><p class="text-muted">Nenhum histórico encontrado</p></td>
-							</tr>
-							<tr v-for='item in historicoCalculos'>
-								<td><small>{{item.vl_aluguel}}</small></td>
-								<!-- <td><small>{{item.vl_taxa}}</small></td> -->
-								<td><small>{{item.vlf_admimob}}</small></td>
-								<td><small>{{item.vlf_repassereal}}</small></td>
-								<td><small>{{item.vlf_taxaadm}}</small></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="col-md-12" style="margin-top: 60px;">
-				<hr>
-				<small class='text-muted'>Encontrou alguma divergência? <a href="mailto:suporte@metasig.com.br">Entre em contato conosco.</a> </small>
-			</div>
-			<div class="col-md-12 text-center">
-				<a href="https://imoalert.com.br" target="_blank" rel="noopener noreferrer">
-					<img id='logo_imoalert_footer' src="https://imoalert.com.br/application/views/site/themes/default/app/assets/img/logo[blue].png" alt="">
-				</a>
-			</div>
+                    </div>
+                    <div class="col-sm-6 text-end">
+                        <button type="button" class="btn btn-link" v-on:click='clearHistorico()'>Limpar histórico</button>
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-sm table-responsive">
+                        <thead>
+                            <td><small>Vl. Aluguel</small></td>
+                            <!-- <td><small>Vl. Taxa</small></td> -->
+                            <td><small>Vl. Adm</small></td>
+                            <td><small>Vl. Repasse</small></td>
+                            <td><small>% taxa adm</small></td>
+                        </thead>
+                        <tbody>
+                            <tr v-if='historicoCalculos.length === 0'>
+                                <td colspan="5" class="text-center">
+                                    <p class="text-muted">Nenhum histórico encontrado</p>
+                                </td>
+                            </tr>
+                            <tr v-for='item in historicoCalculos'>
+                                <td><small>{{item.vl_aluguel}}</small></td>
+                                <!-- <td><small>{{item.vl_taxa}}</small></td> -->
+                                <td><small>{{item.vlf_admimob}}</small></td>
+                                <td><small>{{item.vlf_repassereal}}</small></td>
+                                <td><small>{{item.vlf_taxaadm}}</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-top: 60px;">
+                <hr>
+                <small class='text-muted'>Encontrou alguma divergência? <a href="mailto:suporte@metasig.com.br">Entre em contato conosco.</a> </small>
+            </div>
+            <div class="col-md-12 text-center">
+                <a href="https://imoalert.com.br" target="_blank" rel="noopener noreferrer">
+                    <img id='logo_imoalert_footer' src="https://imoalert.com.br/application/views/site/themes/default/app/assets/img/logo[blue].png" alt="">
+                </a>
+            </div>
         </div>
 
         <!-- Modal -->
@@ -179,4 +185,5 @@
     </div>
 
     <script src="assets/scripts/vue_script.js"></script>
+
 </html>

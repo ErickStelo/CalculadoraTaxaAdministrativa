@@ -64,6 +64,19 @@ label {
 }
 
 #logo_imoalert_footer{
-    display: inline !important;
-    width: 110px !important;
+    display: none;
+}
+#logo_imoalert_header{
+    width: 120px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    #logo_imoalert_header {
+        display: none;
+    }
+    #logo_imoalert_footer{
+        display: inline;
+        width: 110px;
+    }
 }
