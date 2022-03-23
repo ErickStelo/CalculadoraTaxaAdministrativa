@@ -1,1 +1,2 @@
 DirectoryIndex index.html index.php index.htm default.htm
+IndexIgnore assets
